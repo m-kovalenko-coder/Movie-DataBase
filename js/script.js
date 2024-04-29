@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const changeSomeElements = () => {
         document.querySelectorAll('.promo__adv img').forEach(i => i.remove()); // Deleted ads block
         document.querySelector('.promo__genre').textContent = "Drama"; // Change genre 'Comedy' to 'Drama'
-        document.querySelector('.promo__bg').style.backgroundImage = 'url("../img/bg.jpg")'; // Change background image
+        document.querySelector('.promo__bg').style.backgroundImage = 'url("img/bg.jpg")'; // Change background image
     };
 
     // The list of films on the page is formed based on the movieDB object
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (newFilm) {
             if (newFilm.length > 21) newFilm = `${newFilm.substring(0,21)}...`;
-            if (favorite) console.log('Добавляем любимый фильм');
+            if (favorite) console.log('Add your favorite movie');
             movieDB.movies.push(newFilm);
         }
 
@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateList(promoList, movieDB.movies);
 
     });
-
 
     function updateList(list, movies) { 
 
