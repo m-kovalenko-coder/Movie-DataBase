@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const   promoList = document.querySelector('.promo__interactive-list'),
             formAdd = document.querySelector('form.add'),
             formInput = formAdd.querySelector('.adding__input'),
+            menuItem = document.querySelectorAll('.promo__menu-item'),
             movieDB = {
                 movies: [
                     "Logan",
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.promo__adv img').forEach(i => i.remove()); // Deleted ads block
         document.querySelector('.promo__genre').textContent = "Drama"; // Change genre 'Comedy' to 'Drama'
         document.querySelector('.promo__bg').style.backgroundImage = 'url("img/bg.jpg")'; // Change background image
+        document.querySelectorAll('a').forEach(item => item.style.textDecoration = 'none') // Removes the underline from all anchor tags
     };
 
     // The list of films on the page is formed based on the movieDB object
@@ -68,5 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     changeSomeElements();
     updateList(promoList, movieDB.movies);
+
+    menuItem.forEach(item => {
+        item.addEventListener('click', () => {
+            menuItem.forEach(li => li.classList.remove('promo__menu-item_active'));
+            item.classList.add('promo__menu-item_active');
+        })
+    });
 
 });
